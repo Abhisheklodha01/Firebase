@@ -8,7 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const createUSer = (e) => {
+  const createUser = (e) => {
     createUserWithEmailAndPassword(auth, email, password)
     alert("success")
     setEmail("");
@@ -35,7 +35,7 @@ const SignUp = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button onClick={createUSer}>Sign Up</button>
+      <button onClick={createUser}>Sign Up</button>
     </div>
   );
 };

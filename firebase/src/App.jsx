@@ -24,7 +24,11 @@ function App() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={() => firebase.SignupuserwithEmailPassword(email, password)}>Signup</button>
+        <button onClick={() => {firebase.SignupuserwithEmailPassword(email, password)
+                                firebase.putData("users/" + "abhi", ({email, password}))
+        }}>
+         Login
+        </button>
      </div>
     </>
   );
