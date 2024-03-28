@@ -1,18 +1,28 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { app } from "../firebase/firebase.js";
 
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const createUser = (e) => {
-    createUserWithEmailAndPassword(auth, email, password)
-    alert("success")
+    createUserWithEmailAndPassword(auth, email, password);
+    alert("success");
     setEmail("");
     setPassword("");
+  };
+
+  const SignupWithGoogle = () => {
+    signInWithPopup(auth, googleProvider);
   };
 
   return (
@@ -35,6 +45,15 @@ const SignUp = () => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+
+      <br />
+      <br />
+      <br />
+      <button onClick={SignupWithGoogle}>Sign In with google</button>
+      <br />
+      <br />
+      <br />
+
       <button onClick={createUser}>Sign Up</button>
     </div>
   );
