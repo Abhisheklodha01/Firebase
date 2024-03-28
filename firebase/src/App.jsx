@@ -8,6 +8,10 @@ function App() {
   const firebase = useFirebase();
   console.log(firebase);
 
+  const putDataNew = () => {
+    // firebase.putData('root/a/b', {id: 1})
+    firebase.putData('grandfather/father/child', {id: 1, name: "Abhishek Lodha"})
+  }
   return (
     <>
       <div>
@@ -29,6 +33,7 @@ function App() {
         }}>
          Login
         </button>
+        <button onClick={putDataNew}>Put</button>
      </div>
     </>
   );
